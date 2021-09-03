@@ -133,4 +133,16 @@ describe('Sudoku solver', function () {
       expect(solver.check3x3Square(parsedBoard, 7, 7, 1)).to.not.be.ok;
     });
   });
+
+  describe('#checkValue()', function () {
+    it('should check whether a value is valid for a particular position', function () {
+      // No match, return true.
+      expect(solver.checkValue(parsedBoard, 0, 0, 2)).to.be.ok;
+      expect(solver.checkValue(parsedBoard, 3, 7, 3)).to.be.ok;
+
+      // Match found, return false.
+      expect(solver.checkValue(parsedBoard, 0, 0, 9)).to.not.be.ok;
+      expect(solver.checkValue(parsedBoard, 3, 7, 1)).to.not.be.ok;
+    });
+  });
 });

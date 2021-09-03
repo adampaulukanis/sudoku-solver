@@ -73,3 +73,15 @@ module.exports.check3x3Square = function (board, column, row, value) {
   // No match found
   return true;
 };
+
+module.exports.checkValue = function (board, column, row, value) {
+  if (
+    this.checkRow(board, row, value) &&
+    this.checkColumn(board, column, value) &&
+    this.check3x3Square(board, column, row, value)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+};
