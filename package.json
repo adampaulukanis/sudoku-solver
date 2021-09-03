@@ -1,0 +1,15 @@
+{
+  "name": "sudoku-solver",
+  "version": "0.0.0",
+  "description": "Sudoku solver from scratch in JavaScript (TDD style): a tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.1"
+  }
+}
