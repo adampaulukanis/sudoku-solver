@@ -85,3 +85,50 @@ module.exports.checkValue = function (board, column, row, value) {
     return false;
   }
 };
+
+module.exports.solvePuzzle = function (board, emptyPositions) {
+  // Variables to track our position in the solver
+  var limit = 9,
+    i,
+    row,
+    column,
+    value,
+    found;
+
+  for (i = 0; i < emptyPositions.length; ) {
+    row = emptyPositions[i][0];
+    column = emptyPositions[i][1];
+
+    // Try the next value
+    value = board[row][column] + 1;
+
+    // A valid number found?
+    found = false;
+
+    // Keep trying new values
+    while (!found && value <= limit) {
+      // Found a valid value?
+      if (this.checkValue(board, column, row, value)) {
+        found = true;
+        board[row][column] = value;
+        i++;
+        // Not? Try next value
+      } else {
+        value++;
+      }
+    }
+
+    // Move back to the previous position
+    if (!found) {
+      board[row][column] = 0;
+      i--;
+    }
+  }
+
+  // Solution was found!
+  board.forEach(function (row) {
+    console.log(row.join());
+  });
+
+  return board;
+};
