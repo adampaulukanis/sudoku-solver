@@ -101,4 +101,14 @@ describe('Sudoku solver', function () {
       expect(emptyPositions).to.eql(expectedPositions);
     });
   });
+
+  describe('#checkRow()', function () {
+    it('should check that each value in the row does not equal the input', function () {
+      // No match, return true.
+      expect(solver.checkRow(parsedBoard, 0, 2)).to.be.ok;
+
+      // Match found, return false.
+      expect(solver.checkRow(parsedBoard, 0, 9)).to.not.be.ok;
+    });
+  });
 });
