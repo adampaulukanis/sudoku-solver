@@ -4,7 +4,8 @@
   "description": "Sudoku solver from scratch in JavaScript (TDD style)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha test.js",
+    "pretest": "prettier -c *"
   },
   "author": "",
   "license": "ISC",
