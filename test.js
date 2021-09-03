@@ -111,4 +111,14 @@ describe('Sudoku solver', function () {
       expect(solver.checkRow(parsedBoard, 0, 9)).to.not.be.ok;
     });
   });
+
+  describe('#checkColumn()', function () {
+    it('should check that each value in a column does not equal the input', function () {
+      // No match, return true.
+      expect(solver.checkColumn(parsedBoard, 0, 9)).to.be.ok;
+
+      // Match found, return false.
+      expect(solver.checkColumn(parsedBoard, 0, 5)).to.not.be.ok;
+    });
+  });
 });

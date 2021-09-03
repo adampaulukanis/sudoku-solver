@@ -34,3 +34,14 @@ module.exports.checkRow = function (board, row, value) {
   // No match found
   return true;
 };
+
+module.exports.checkColumn = function (board, column, value) {
+  for (var i = 0; i < board.length; i++) {
+    if (board[i][column] === value) {
+      return false;
+    }
+  }
+
+  // No match found
+  return true;
+};
