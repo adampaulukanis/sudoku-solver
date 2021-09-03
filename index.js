@@ -45,3 +45,31 @@ module.exports.checkColumn = function (board, column, value) {
   // No match found
   return true;
 };
+
+module.exports.check3x3Square = function (board, column, row, value) {
+  // Save the upper-left corner.
+  var columnCorner = 0,
+    rowCorner = 0,
+    squareSize = 3;
+
+  // Find left-most column
+  while (column >= columnCorner + squareSize) {
+    columnCorner += squareSize;
+  }
+
+  // Find upper-most row
+  while (row >= rowCorner + squareSize) {
+    rowCorner += squareSize;
+  }
+
+  for (var y = rowCorner; y < rowCorner + squareSize; y++) {
+    for (var x = columnCorner; x < columnCorner + squareSize; x++) {
+      if (board[y][x] === value) {
+        return false;
+      }
+    }
+  }
+
+  // No match found
+  return true;
+};
